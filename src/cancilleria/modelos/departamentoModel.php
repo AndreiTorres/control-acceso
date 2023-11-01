@@ -3,13 +3,10 @@
 require "../../config/Conexion.php";
 class Departamento{
 
-
-	//implementamos nuestro constructor
 public function __construct(){
 
 }
 
-//metodo insertar regiustro
 public function insertar($nombre,$descripcion){
 	date_default_timezone_set('America/Mexico_City');
 	$fechacreada=date('Y-m-d H:i:s');
@@ -27,19 +24,16 @@ public function eliminar($iddepartamento){
 	return ejecutarConsulta($sql);
 }
 
-
-//metodo para mostrar registros
 public function mostrar($iddepartamento){
 	$sql="SELECT * FROM departamento WHERE iddepartamento='$iddepartamento'";
 	return ejecutarConsultaSimpleFila($sql);
 }
 
-//listar registros
 public function listar(){
 	$sql="SELECT * FROM departamento WHERE idtipousuario= 7";
 	return ejecutarConsulta($sql);
 }
-//listar y mostrar en selct
+
 public function select(){
 	$sql="SELECT * FROM departamento WHERE idtipousuario= 7";
 	return ejecutarConsulta($sql);

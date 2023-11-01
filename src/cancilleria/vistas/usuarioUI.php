@@ -1,13 +1,12 @@
 <?php
-//activamos almacenamiento en el buffer
 ob_start();
 session_start();
     require '../../general/vistas/header.php';
 ?>
     <div class="content-wrapper">
-      <!-- Main content -->
+
       <section class="content">
-        <!-- Default box -->
+ 
         <div class="row">
           <div class="col-md-12">
             <div class="box">
@@ -16,8 +15,7 @@ session_start();
                 <div class="box-tools pull-right">
                 </div>
               </div>
-              <!--box-header-->
-              <!--centro-->
+
               <div class="panel-body table-responsive" id="listadoregistros">
                 <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
                   <thead>
@@ -189,7 +187,6 @@ session_start();
 
 
 
-              <!--modal para ver la venta-->
               <div class="modal fade" id="getCodeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog" style="width: 50% !important;">
                   <div class="modal-content">
@@ -214,17 +211,13 @@ session_start();
                     </div>
                   </div>
                 </div>
-                <!--inicio de modal editar contraseña--->
-                <!--fin de modal editar contraseña--->
-                <!--fin centro-->
               </div>
 
             </div>
           </div>
-          <!-- /.box -->
+
 
       </section>
-      <!-- /.content -->
     </div>
   <?php
 

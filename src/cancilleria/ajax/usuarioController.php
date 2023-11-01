@@ -38,7 +38,6 @@ switch ($_GET["op"]) {
 				move_uploaded_file($_FILES["imagen"]["tmp_name"], "../../files/usuarios/" . $imagen);
 			}
 		}
-		//Hash SHA256 para la contraseña
 		$clavehash = hash("SHA256", $password);
 		if (empty($idusuario)) {
 			try {
@@ -92,7 +91,6 @@ switch ($_GET["op"]) {
 
 	case 'listar':
 		$rspta = $usuario->listar();
-		//declaramos un array
 		$data = array();
 		while ($reg = $rspta->fetch_object()) {
 			$data[] = array(
@@ -106,9 +104,9 @@ switch ($_GET["op"]) {
 		}
 
 		$results = array(
-			"sEcho" => 1, //info para datatables
-			"iTotalRecords" => count($data), //enviamos el total de registros al datatable
-			"iTotalDisplayRecords" => count($data), //enviamos el total de registros a visualizar
+			"sEcho" => 1,
+			"iTotalRecords" => count($data),
+			"iTotalDisplayRecords" => count($data),
 			"aaData" => $data
 		);
 		echo json_encode($results);

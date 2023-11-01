@@ -1,6 +1,5 @@
 var tabla;
 
-//funcion que se ejecuta al inicio
 function init() {
     mostrarform(false);
     mostrarform_clave(false);
@@ -13,31 +12,27 @@ function init() {
     })
 
     $("#imagenmuestra").hide();
-    //mostramos los permisos
     $.post("../../cancilleria/ajax/usuarioController.php?op=permisos&id=", function (r) {
         $("#permisos").html(r);
     });
 
-    //cargamos los items al select departamento
     $.post("../../cancilleria/ajax/departamentoController.php?op=selectDepartamento", function (r) {
         $("#iddepartamento").html(r);
         $('#iddepartamento').selectpicker('refresh');
     });
 
-    //cargamos los items al select tipousuario
     $.post("../../cancilleria/ajax/tipoUsuarioController.php?op=selectTipousuario", function (r) {
         $("#idtipousuario").html(r);
         $('#idtipousuario').selectpicker('refresh');
     });
 
     let url = new URL(window.location.href);
-    // Busca si existe el parámetro
+
     if (url.searchParams.get('id') != null) {
         mostrar(url.searchParams.get('id'));
     }
 }
 
-//funcion limpiar
 function limpiar() {
     $("#nombre").val("");
     $("#apellidos").val("");
@@ -78,7 +73,6 @@ function limpiar() {
     $("#domingod").prop('checked', true);
 }
 
-//funcion mostrar formulario
 function mostrarform(flag) {
     limpiar();
     if (flag) {
@@ -113,7 +107,7 @@ function mostrarform_clave(flag) {
         $("#btnagregar").show();
     }
 }
-//cancelar form
+
 function cancelarform() {
     $("#claves").show();
     limpiar();
@@ -124,7 +118,7 @@ function cancelarform_clave() {
     limpiar();
     mostrarform_clave(false);
 }
-//funcion listar
+
 
 Puesto = "";
 tipoUsuario = "";
@@ -132,9 +126,9 @@ tipoUsuario = "";
 function listar() {
     tabla = $('#tbllistado').dataTable({
         stateSave: true,
-        "aProcessing": true, //activamos el procedimiento del datatable
-        "aServerSide": true, //paginacion y filrado realizados por el server
-        dom: 'Blfrtlip', //definimos los elementos del control de la tabla
+        "aProcessing": true, 
+        "aServerSide": true,
+        dom: 'Blfrtlip', 
         order: [[2, 'asc']],
         columnDefs: [{
             searchable: false,
@@ -144,16 +138,11 @@ function listar() {
         ],
         buttons: [
             {
-                extend: "excelHtml5",
-                title: "Usuarios Cancilleria"
-            }
-            ,
-            {
                 extend: 'pdfHtml5',
                 title: "Usuarios Cancilleria",
                 text: 'PDF',
-                orientation: 'portrait', //landscape
-                pageSize: 'letter', //A3 , A5 , A6 , legal , letter
+                orientation: 'portrait',
+                pageSize: 'letter', 
                 exportOptions: {
                     columns: [0, 2, 3, 5],
                     search: 'applied',
@@ -161,8 +150,6 @@ function listar() {
                 },
                 customize: function (doc) {
                     doc.defaultStyle.font = "mon";
-                    //Width 100%
-                    //doc.content[1].table.widths = Array(doc.content[1].table.body[0].length + 1).join('*').split('');
                     doc.content[1].table.widths = ['5%', '50%', '20%', '25%'];
                     let table = doc.content[1].table.body;
                     var numCols = $('#tbllistado').DataTable().columns([0, 2, 3, 5]).nodes().length;
@@ -183,17 +170,13 @@ function listar() {
                         }
                     }
 
-                    doc.content.splice(0, 1); // quitar titulo de datatables
+                    doc.content.splice(0, 1);
                     doc.pageMargins = [20, 60, 20, 30];
                     doc.defaultStyle.fontSize = 9;
                     doc.styles.tableHeader.fontSize = 10;
                     doc['header'] = (function () {
                         return {
                             columns: [
-                                /*{
-                                    image: logo,		propiedad para insertar imagen
-                                    width: 24
-                                },*/
                                 {
                                     alignment: 'left',
                                     text: 'OFICINA DE PASAPORTES YUCATÁN',
@@ -225,17 +208,17 @@ function listar() {
             }
         },
         "bDestroy": true,
-        "iDisplayLength": 25, //paginacion
+        "iDisplayLength": 25,
         "order": [
             [0, "desc"]
-        ], //ordenar (columna, orden)
+        ], 
 
-        initComplete: function () { //Funcion para filtrar por tipo de usuario.
+        initComplete: function () { 
             this.api()
-                .columns([3]) //Columna de la tabla a filtrar
+                .columns([3])
                 .every(function () {
                     var column = this;
-                    var select = $('<select><option value="">Todos</option></select>') //Dropdown
+                    var select = $('<select><option value="">Todos</option></select>')
                         .appendTo($(column.header()))
                         .on('change', function () {
                             var val = $.fn.dataTable.util.escapeRegex($(this).val());
@@ -250,15 +233,15 @@ function listar() {
                             tipoUsuario += d;
                         });
 
-                    $(select).click(function (e) { //funcion para evitar que el dropdown
-                        e.stopPropagation(); //interfiera con la tabla.
+                    $(select).click(function (e) { 
+                        e.stopPropagation(); 
                     });
                 });
             this.api()
-                .columns([5]) //Columna de la tabla a filtrar
+                .columns([5]) 
                 .every(function () {
                     var column = this;
-                    var select = $('<select><option value="">Todos</option></select>') //Dropdown
+                    var select = $('<select><option value="">Todos</option></select>') 
                         .appendTo($(column.header()))
                         .on('change', function () {
                             var val = $.fn.dataTable.util.escapeRegex($(this).val());
@@ -273,8 +256,8 @@ function listar() {
                             Puesto += d;
                         });
 
-                    $(select).click(function (e) { //funcion para evitar que el dropdown
-                        e.stopPropagation(); //interfiera con la tabla.
+                    $(select).click(function (e) { 
+                        e.stopPropagation(); 
                     });
                     var currSearch = column.search();
                     if (currSearch) {
@@ -291,9 +274,9 @@ function listar() {
         });
     }).draw();
 }
-//funcion para guardaryeditar
+
 function guardaryeditar(e) {
-    e.preventDefault(); //no se activara la accion predeterminada 
+    e.preventDefault(); 
     $("#btnGuardar").prop("disabled", true);
     var formData = new FormData($("#formulario")[0]);
     $.ajax({
@@ -313,7 +296,7 @@ function guardaryeditar(e) {
 }
 
 function editar_clave(c) {
-    c.preventDefault(); //no se activara la accion predeterminada 
+    c.preventDefault(); 
     var formData = new FormData($("#formularioc")[0]);
 
     $.ajax({
@@ -331,7 +314,7 @@ function editar_clave(c) {
     limpiar();
     $("#getCodeModal").modal('hide');
 }
-//abre ventana de edicion 
+
 function mostrar(idusuario) {
     limpiar();
     $.post("../../cancilleria/ajax/usuarioController.php?op=mostrar", { idusuario: idusuario },
@@ -410,7 +393,7 @@ function mostrar_clave(idusuario) {
         });
 }
 
-//funcion para desactivar
+
 function desactivar(codigo_persona) {
     bootbox.confirm("¿Esta seguro de eliminar a este usuario?", function (result) {
         if (result) {

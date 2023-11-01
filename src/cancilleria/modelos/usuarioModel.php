@@ -1,13 +1,11 @@
 <?php 
-//incluir la conexion de base de datos
 require "../../config/Conexion.php";
 class Usuario{
-	//implementamos nuestro constructor
+
 public function __construct(){
 
 }
 
-//metodo insertar registro
 public function insertar($nombre,$apellidos,$login,$iddepartamento,$idtipousuario,$clavehash,$imagen,$usuariocreado,$codigo_persona,$lunes,$martes,$miercoles,$jueves,$viernes,$sabado,$domingo){
 	date_default_timezone_set('America/Mexico_City');
 	$fechacreado=date('Y-m-d H:i:s');
@@ -62,14 +60,11 @@ public function get_foto($codigo_persona){
 	return ejecutarConsultaSimpleFila($sql);
 }
 
-//metodo para mostrar registros
 public function mostrar($idusuario){
-	//$sql="SELECT * FROM usuarios WHERE idusuario='$idusuario'";
 	$sql="SELECT * FROM usuarios inner join horario on usuarios.codigo_persona = horario.codigo_persona WHERE idusuario='$idusuario';";
 	return ejecutarConsultaSimpleFila($sql);
 }
 
-//listar registros
 public function listar(){
 	$sql="SELECT DISTINCT u.idusuario,u.apellidos,u.nombre,t.nombre as idtipousuario,u.imagen,d.iddepartamento,d.nombre as departamento,u.codigo_persona FROM usuarios u JOIN tipousuario t JOIN departamento d WHERE (u.idtipousuario = 1 OR u.idtipousuario = 6 OR u.idtipousuario = 7) AND (u.idtipousuario = t.idtipousuario) AND (u.iddepartamento = d.iddepartamento) ORDER BY iddepartamento ASC, apellidos ASC;";
 	return ejecutarConsulta($sql);
@@ -85,7 +80,6 @@ public function cantidad_usuario(){
 	return ejecutarConsulta($sql);
 }
 
-//Función para verificar el acceso al sistema
 public function verificar($login,$clave)
 {
     $sql="SELECT u.codigo_persona,u.idusuario,u.nombre,u.apellidos,u.login,u.idtipousuario,u.iddepartamento,u.email,u.imagen,u.login, tu.nombre as tipousuario FROM usuarios u INNER JOIN tipousuario tu ON u.idtipousuario=tu.idtipousuario WHERE login='$login' AND password='$clave' AND estado='1'"; 

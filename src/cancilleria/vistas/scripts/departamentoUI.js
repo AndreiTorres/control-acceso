@@ -1,6 +1,5 @@
 var tabla;
 
-//funcion que se ejecuta al inicio
 function init(){
    mostrarform(false);
    listar();
@@ -10,14 +9,12 @@ function init(){
    })
 }
 
-//funcion limpiar
 function limpiar(){
 	$("#iddepartamento").val("");
 	$("#nombre").val("");
 	$("#descripcion").val(""); 
 }
  
-//funcion mostrar formulario
 function mostrarform(flag){
 	limpiar();
 	if(flag){
@@ -32,25 +29,22 @@ function mostrarform(flag){
 	}
 }
 
-//cancelar form
 function cancelarform(){
 	limpiar();
 	mostrarform(false);
 }
 
-//funcion listar
 function listar(){
 	tabla=$('#tbllistado').dataTable({
-		"aProcessing": true,//activamos el procedimiento del datatable
-		"aServerSide": true,//paginacion y filrado realizados por el server
-		dom: 'Bfrtip',//definimos los elementos del control de la tabla
+		"aProcessing": true,
+		"aServerSide": true,
+		dom: 'Bfrtip',
 		columnDefs: [{
             searchable: false,
             orderable: false,
             targets: 0,
         }],
 		buttons: [
-                  'excelHtml5',
                   {
 					extend: 'pdfHtml5',
 					text: 'PDF',
@@ -114,8 +108,8 @@ function listar(){
 			}
 		},
 		"bDestroy":true,
-		"iDisplayLength":10,//paginacion
-		"order":[[0,"desc"]]//ordenar (columna, orden)
+		"iDisplayLength":10,
+		"order":[[0,"desc"]]
 	}).DataTable();
 	tabla.on('order.dt search.dt', function() {
         let i = 1;
@@ -124,9 +118,9 @@ function listar(){
         });
     }).draw();
 }
-//funcion para guardaryeditar
+
 function guardaryeditar(e){
-     e.preventDefault();//no se activara la accion predeterminada 
+     e.preventDefault();
      $("#btnGuardar").prop("disabled",true);
      var formData=new FormData($("#formulario")[0]);
 
@@ -160,7 +154,6 @@ function mostrar(iddepartamento){
 		})
 }
 
-//funcion para desactivar
 function eliminar(iddepartamento){
 	bootbox.confirm("¿Esta seguro de eliminar este puesto?", function(result){
 		if (result) {
