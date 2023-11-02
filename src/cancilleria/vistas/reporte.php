@@ -4,7 +4,7 @@ session_start();
 if (!isset($_SESSION['nombre'])) {
     header("Location: ../../general/vistas/login.html");
 } else {
-    if ($_SESSION['tipousuario'] == 'Administrador' || $_SESSION['tipousuario'] == 'Administrador Cancillería') {
+    if ($_SESSION['tipousuario'] == 'Administrador') {
         require '../../general/vistas/header.php';
 ?>
         <div class="content-wrapper">

@@ -1,8 +1,12 @@
 <?php
 ob_start();
-require '../../general/vistas/header.php';
+session_start();
+if (!isset($_SESSION['nombre'])) {
+  header("Location: ../../general/vistas/login.html");
+} else {
+  if ($_SESSION['tipousuario'] == 'Administrador' || $_SESSION['tipousuario'] == 'Administrador Cancillería') {
+    require '../../general/vistas/header.php';
 ?>
-
 <div class="content-wrapper">
   <section class="content">
     <div class="row">
@@ -114,13 +118,14 @@ require '../../general/vistas/header.php';
   </section>
 
 </div>
-
 <?php
-require '../../general/vistas/footer.php';
-?>
-
-<script src="scripts/entrada_salida.js"></script>
-
+  } else {
+    header("Location: ../../general/vistas/escritorio.php");
+  }
+  require '../../general/vistas/footer.php';
+  ?>
+  <script src="scripts/entrada_salida.js"></script>
 <?php
+}
 ob_end_flush();
 ?>

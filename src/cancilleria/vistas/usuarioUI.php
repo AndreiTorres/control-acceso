@@ -1,6 +1,10 @@
 <?php
 ob_start();
 session_start();
+if (!isset($_SESSION['nombre'])) {
+  header("Location: ../../general/vistas/login.html");
+} else {
+  if ($_SESSION['tipousuario'] == 'Administrador') {
     require '../../general/vistas/header.php';
 ?>
     <div class="content-wrapper">
@@ -219,13 +223,16 @@ session_start();
 
       </section>
     </div>
-  <?php
+<?php
+  } else {
+    header("Location: ../../general/vistas/escritorio.php");
+  }
 
   require '../../general/vistas/footer.php';
   ?>
   <script src="scripts/usuarioUI.js"></script>
 <?php
-
+}
 
 ob_end_flush();
 ?>

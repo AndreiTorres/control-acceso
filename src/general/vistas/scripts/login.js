@@ -9,7 +9,7 @@ $("#frmAcceso").on('submit', function (e) {
             { "logina": logina, "clavea": clavea },
             function (data) {
                 if (data != "null") {
-                    $(location).attr("href", "../../index.php");
+                    $(location).attr("href", "escritorio.php");
                 }
                 else {
                     bootbox.alert("Usuario y/o Password incorrectos");

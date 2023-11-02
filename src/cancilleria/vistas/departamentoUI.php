@@ -1,9 +1,15 @@
 <?php
-//activamos almacenamiento en el buffer
 ob_start();
 session_start();
+if (!isset($_SESSION['nombre'])) {
+  header("Location: ../../general/vistas/login.php");
+}else{
+  if($_SESSION['tipousuario']!=='Administrador'){
+    header("Location: ../../general/vistas/escritorio.php");
+  }
 
-  require '../../general/vistas/header.php';
+require '../../general/vistas/header.php';
+
 
 
 ?>
@@ -59,13 +65,11 @@ session_start();
 
     </section>
   </div>
-  <?php
-
-
-  require '../../general/vistas/footer.php';
-  ?>
-  <script src="scripts/departamentoUI.js"></script>
-<?php
-
+<?php 
+require '../../general/vistas/footer.php';
+?>
+<script src="scripts/departamentoUI.js"></script>
+<?php 
+}
 ob_end_flush();
 ?>

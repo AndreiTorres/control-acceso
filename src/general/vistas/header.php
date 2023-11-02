@@ -41,24 +41,30 @@
           <ul class="nav navbar-nav">
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="#" class="user-image" alt="User Image">
+                <img src="../../files/usuarios/<?php echo $_SESSION['imagen']; ?>" class="user-image" alt="User Image">
                 <span id="nombreu" class="hidden-xs">
-                  NOMBRE SESION
+                <?php echo $_SESSION['nombre'] . ' ' . $_SESSION['apellidos']; ?>
                 </span>
               </a>
               <ul class="dropdown-menu">
                 <li class="user-header">
-                  <img src="#" class="img-circle" alt="User Image">
+                  <img src="../../files/usuarios/<?php echo $_SESSION['imagen']; ?>" class="img-circle" alt="User Image">
                   <p>
-                    NOMBRE SESION
+                  <?php echo $_SESSION['nombre']; ?>
                     <small>
-                      TITULO
+                    <?php
+                      require_once '../../config/Conexion.php';
+                      $sql = "SELECT nombre FROM departamento WHERE iddepartamento =" . $_SESSION['departamento'] . ";";
+                      $rspsta = ejecutarConsulta($sql);
+                      $reg = $rspsta->fetch_object();
+                      echo $reg->nombre;
+                      ?>
                     </small>
                   </p>
                 </li>
                 <li class="user-footer">
                   <div class="pull-right">
-                    <a href="#" class="btn btn-default btn-flat">Salir</a>
+                    <a href="../../general/ajax/sesion.php?op=salir" class="btn btn-default btn-flat" class="btn btn-default btn-flat">Salir</a>
                   </div>
                 </li>
               </ul>
@@ -71,20 +77,23 @@
       <section class="sidebar">
         <div class="user-panel">
           <div class="pull-left image">
-            <img src="#" class="img-circle" style="width: 50px; height: 50px;" alt="User Image">
+            <img src="../../files/usuarios/<?php echo $_SESSION['imagen']; ?>" class="img-circle" style="width: 50px; height: 50px;" alt="User Image">
           </div>
           <div class="pull-left info">
             <p>
-              NOMBRE SESION
+            <?php echo $_SESSION['nombre']; ?>
             </p>
             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
           </div>
         </div>
         <ul class="sidebar-menu tree" data-widget="tree">
           <li class="header">MENÚ DE NAVEGACIÓN</li>
-          <li><a href="#"><i class="fa fa-home" style="font-size:24px;"></i>
+          <li><a href="../../general/vistas/escritorio.php"><i class="fa fa-home" style="font-size:24px;"></i>
               <span>Escritorio</span></a></li>
-
+              <?php
+          switch ($_SESSION['tipousuario']) {
+            case 'Administrador':
+              ?>
           <li class="treeview">
             <a href="#">
               <i class="fa fa-institution" aria-hidden="true"></i>
@@ -94,13 +103,16 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-circle-o"></i> Usuarios</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Puestos</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Reporte</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Entradas/Salidas</a></li>
+              <li><a href="../../cancilleria/vistas/usuarioUI.php"><i class="fa fa-circle-o"></i> Usuarios</a></li>
+              <li><a href="../../cancilleria/vistas/departamentoUI.php"><i class="fa fa-circle-o"></i> Puestos</a></li>
+              <li><a href="../../cancilleria/vistas/reporte.php"><i class="fa fa-circle-o"></i> Reporte</a></li>
+              <li><a href="../../cancilleria/vistas/entradas_salidas.php"><i class="fa fa-circle-o"></i> Entradas/Salidas</a></li>
             </ul>
           </li>
-
+          <?php
+              break;
+          }
+          ?>
         </ul>
       </section>
 
