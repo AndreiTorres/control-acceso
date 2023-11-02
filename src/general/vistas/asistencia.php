@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../public/css/font-awesome.css">
     <link rel="stylesheet" href="../../public/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../../public/css/blue.css">
-    <link rel="shortcut icon" href="../../public/images/Nuevo Logo.jpg">
+    <link rel="shortcut icon" href="../../public/images/Nuevo Logo.png">
   </head>
   <body class="hold-transition lockscreen">
     <div class="lockscreen-wrapper">

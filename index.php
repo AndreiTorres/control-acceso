@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>OP Yucatán</title>
+    <title>CONTROL DE ACCESO</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="src/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/public/css/font-awesome.css">
     <link rel="stylesheet" href="src/public/css/AdminLTE.min.css">
     <link rel="stylesheet" href="src/public/css/blue.css">
-    <link rel="shortcut icon" href="src/public/images/SRE Nuevo Logo.jpg">
+    <link rel="shortcut icon" href="src/public/images/Nuevo Logo.png">
 </head>
 
 <body class="hold-transition lockscreen">
@@ -20,7 +20,7 @@
             <a><font color="#9D2449">Seleccione una opcion</a>
             </div></font>
             <div class="page">
-                <a href="" class="boton" id="btnabrir">Registro entradas/salidas</a>
+                <a href="src/general/vistas/asistencia.php" class="boton" id="btnabrir">Registro entradas/salidas</a>
             </div>
             <br>    
             <div class="page">

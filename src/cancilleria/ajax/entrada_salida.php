@@ -35,7 +35,7 @@ switch ($_GET["op"]) {
 		break;
 
 	case 'selectPersona':
-		require_once "../modelos/Usuario.php";
+		require_once "../modelos/usuarioModel.php";
 		$usuario = new Usuario();
 		$rspta = $usuario->selectPersona();
 		while ($reg = $rspta->fetch_assoc()) {

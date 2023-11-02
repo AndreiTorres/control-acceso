@@ -71,7 +71,7 @@ public function listar(){
 }
 
 public function selectPersona(){
-	$sql="SELECT codigo_persona, nombre, apellidos FROM usuarios WHERE idtipousuario=1 OR idtipousuario=6 OR idtipousuario=7 ORDER BY apellidos ASC;";
+	$sql="SELECT codigo_persona, nombre, apellidos FROM usuarios WHERE idtipousuario!=1 ORDER BY apellidos ASC;";
 	return ejecutarConsulta($sql);
 }
 
