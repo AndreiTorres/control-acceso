@@ -15,12 +15,10 @@ if (!function_exists('ejecutarConsulta')) {
 		global $conexion;
 		$query=$conexion->query($sql);
 		return $query;
-
 	} 
 
 	function ejecutarConsultaSimpleFila($sql){
 		global $conexion;
-
 		$query=$conexion->query($sql);
 		$row=$query->fetch_assoc();
 		return $row;
@@ -44,12 +42,11 @@ if (!function_exists('ejecutarConsulta')) {
 		return $query;
 	}
 
-function consultaimg($sql){
-	$query = ejecutarConsulta($sql);
-	$row=$query->fetch_array(MYSQLI_ASSOC);
-	return $row;
+	function consultaimg($sql){
+		$query = ejecutarConsulta($sql);
+		$row=$query->fetch_array(MYSQLI_ASSOC);
+		return $row;
+	}
 }
 
-}
-
- ?>
+?>
