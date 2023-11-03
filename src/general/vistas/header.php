@@ -64,7 +64,7 @@
                 </li>
                 <li class="user-footer">
                   <div class="pull-right">
-                    <a href="../ajax/sesionController.php?op=salir" class="btn btn-default btn-flat" class="btn btn-default btn-flat">Salir</a>
+                    <a href="../../general/ajax/sesionController.php?op=salir" class="btn btn-default btn-flat" class="btn btn-default btn-flat">Salir</a>
                   </div>
                 </li>
               </ul>
