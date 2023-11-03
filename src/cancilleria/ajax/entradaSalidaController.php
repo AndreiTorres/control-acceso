@@ -1,5 +1,5 @@
 <?php
-require_once "../modelos/Entrada_salida.php";
+require_once "../modelos/entradaSalidaModel.php";
 if (strlen(session_id()) < 1)
 	session_start();
 $asistencia = new Asistencia();

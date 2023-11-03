@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require_once "../modelos/Sesion.php";
+require_once "../modelos/sesionModel.php";
 
 $usuario=new Usuario();
 

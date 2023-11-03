@@ -5,7 +5,7 @@ if (!isset($_SESSION['nombre'])) {
   header("Location: login.html");
 } else {
   require 'header.php';
-  require_once('../modelos/Sesion.php');
+  require_once('../modelos/sesionModel.php');
   $usuario = new Usuario();
 
 ?>

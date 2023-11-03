@@ -43,6 +43,6 @@
         <script src="../../public/js/jquery-3.1.1.min.js"></script>
         <script src="../../public/js/bootstrap.min.js"></script>
         <script src="../../public/js/bootbox.min.js"></script>
-        <script type="text/javascript" src="scripts/asistencia.js"></script>
+        <script type="text/javascript" src="scripts/asistenciaUI.js"></script>
   </body>
 </html> 

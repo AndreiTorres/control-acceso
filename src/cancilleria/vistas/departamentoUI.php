@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 if (!isset($_SESSION['nombre'])) {
-  header("Location: ../../general/vistas/login.php");
+  header("Location: ../../general/vistas/loginUI.php");
 }else{
   if($_SESSION['tipousuario']!=='Administrador'){
     header("Location: ../../general/vistas/escritorio.php");

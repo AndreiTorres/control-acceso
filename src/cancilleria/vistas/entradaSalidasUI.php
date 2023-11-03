@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 if (!isset($_SESSION['nombre'])) {
-  header("Location: ../../general/vistas/login.html");
+  header("Location: ../../general/vistas/loginUI.html");
 } else {
   if ($_SESSION['tipousuario'] == 'Administrador' || $_SESSION['tipousuario'] == 'Administrador Cancillería') {
     require '../../general/vistas/header.php';
@@ -124,7 +124,7 @@ if (!isset($_SESSION['nombre'])) {
   }
   require '../../general/vistas/footer.php';
   ?>
-  <script src="scripts/entrada_salida.js"></script>
+  <script src="scripts/entradaSalidaUI.js"></script>
 <?php
 }
 ob_end_flush();

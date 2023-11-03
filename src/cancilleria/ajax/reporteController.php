@@ -1,5 +1,5 @@
 <?php
-require_once "../modelos/Reporte.php";
+require_once "../modelos/reporteModel.php";
 if (strlen(session_id()) < 1)
 	session_start();
 $reporte = new Reporte();

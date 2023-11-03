@@ -5,7 +5,7 @@ $("#frmAcceso").on('submit', function (e) {
     if ($("#logina").val() == "" || $("#clavea").val() == "") {
         bootbox.alert("Asegúrate de llenar todo los campos");
     } else {
-        $.post("../ajax/sesion.php?op=verificar",
+        $.post("../ajax/sesionController.php?op=verificar",
             { "logina": logina, "clavea": clavea },
             function (data) {
                 if (data != "null") {

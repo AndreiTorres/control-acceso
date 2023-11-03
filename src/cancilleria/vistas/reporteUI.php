@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 if (!isset($_SESSION['nombre'])) {
-    header("Location: ../../general/vistas/login.html");
+    header("Location: ../../general/vistas/loginUI.html");
 } else {
     if ($_SESSION['tipousuario'] == 'Administrador') {
         require '../../general/vistas/header.php';
@@ -79,7 +79,7 @@ if (!isset($_SESSION['nombre'])) {
     }
     require '../../general/vistas/footer.php';
     ?>
-    <script src="scripts/reporte.js"></script>
+    <script src="scripts/reporteUI.js"></script>
 <?php
 }
 

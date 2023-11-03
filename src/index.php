@@ -1,4 +1,3 @@
 <?php 
-
-header('location: general/vistas/login.html');  
+header('location: general/vistas/loginUI.html');  
  ?> 

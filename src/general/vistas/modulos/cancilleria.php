@@ -9,7 +9,7 @@
             <div class="panel-body">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="small-box bg-green-sre">
-                        <a href="../../cancilleria/vistas/reporte.php" class="small-box-footer">
+                        <a href="../../cancilleria/vistas/reporteUI.php" class="small-box-footer">
                             <div class="inner">
                                 <h5 style="font-size: 20px;">
                                     <strong>Reporte de asistencias </strong>
@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="small-box bg-besh-sre">
-                        <a href="../../cancilleria/vistas/entradas_salidas.php" class="small-box-footer">
+                        <a href="../../cancilleria/vistas/entradaSalidasUI.php" class="small-box-footer">
                             <div class="inner">
                                 <h5 style="font-size: 20px;">
                                     <strong>Entradas y salidas </strong>

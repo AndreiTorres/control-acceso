@@ -1,6 +1,6 @@
 <?php
-require_once "../modelos/Asistencia.php";
-require_once "../modelos/FaltaAutomatica.php";
+require_once "../modelos/asistenciaModel.php";
+require_once "../modelos/faltaAutomaticaModel.php";
 require_once "../../config/Conexion.php";
 
 $asistencia = new Asistencia();

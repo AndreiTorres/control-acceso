@@ -64,7 +64,7 @@
                 </li>
                 <li class="user-footer">
                   <div class="pull-right">
-                    <a href="../../general/ajax/sesion.php?op=salir" class="btn btn-default btn-flat" class="btn btn-default btn-flat">Salir</a>
+                    <a href="../ajax/sesionController.php?op=salir" class="btn btn-default btn-flat" class="btn btn-default btn-flat">Salir</a>
                   </div>
                 </li>
               </ul>
@@ -105,8 +105,8 @@
             <ul class="treeview-menu">
               <li><a href="../../cancilleria/vistas/usuarioUI.php"><i class="fa fa-circle-o"></i> Usuarios</a></li>
               <li><a href="../../cancilleria/vistas/departamentoUI.php"><i class="fa fa-circle-o"></i> Puestos</a></li>
-              <li><a href="../../cancilleria/vistas/reporte.php"><i class="fa fa-circle-o"></i> Reporte</a></li>
-              <li><a href="../../cancilleria/vistas/entradas_salidas.php"><i class="fa fa-circle-o"></i> Entradas/Salidas</a></li>
+              <li><a href="../../cancilleria/vistas/reporteUI.php"><i class="fa fa-circle-o"></i> Reporte</a></li>
+              <li><a href="../../cancilleria/vistas/entradaSalidasUI.php"><i class="fa fa-circle-o"></i> Entradas/Salidas</a></li>
             </ul>
           </li>
           <?php

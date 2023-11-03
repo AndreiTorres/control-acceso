@@ -79,7 +79,7 @@ function listar() {
 
             ],
             ajax: {
-                url: "../ajax/reporte.php?op=listar",
+                url: "../ajax/reporteController.php?op=listar",
                 data: { fecha_inicio: fecha_inicio, fecha_fin: fecha_fin },
                 type: "post",
                 dataType: "json",
@@ -208,7 +208,7 @@ function listar_mes() {
                 }
             ],
             ajax: {
-                url: "../ajax/reporte.php?op=listar_mes",
+                url: "../ajax/reporteController.php?op=listar_mes",
                 data: { month: month, year: year },
                 type: "post",
                 dataType: "json",

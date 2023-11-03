@@ -20,11 +20,11 @@
             <a><font color="#9D2449">Seleccione una opcion</a>
             </div></font>
             <div class="page">
-                <a href="src/general/vistas/asistencia.php" class="boton" id="btnabrir">Registro entradas/salidas</a>
+                <a href="src/general/vistas/asistenciaUI.php" class="boton" id="btnabrir">Registro entradas/salidas</a>
             </div>
             <br>    
             <div class="page">
-            <a href="src/general/vistas/login.html" class="boton" id="btnabrir">Ingreso al sistema</a>
+            <a href="src/general/vistas/loginUI.html" class="boton" id="btnabrir">Ingreso al sistema</a>
             </div>
         </div>
     </div>

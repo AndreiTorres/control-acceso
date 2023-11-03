@@ -35,7 +35,7 @@ function registrar_asistencia(e) {
     let hora = d.getHours();
     if (hora >= 19 && hora <21) {
         $.ajax({
-            url: "../ajax/asistencia.php?op=falta_automatica",
+            url: "../ajax/asistenciaController.php?op=falta_automatica",
             type: "POST",
             data: '',
             contentType: false,
@@ -45,7 +45,7 @@ function registrar_asistencia(e) {
         })
     }
     $.ajax({
-        url: "../ajax/asistencia.php?op=verificar_usuario",
+        url: "../ajax/asistenciaController.php?op=verificar_usuario",
         type: "POST",
         data: formData,
         contentType: false,
@@ -80,7 +80,7 @@ function registrar_asistencia(e) {
                                 className: 'btn-primary btn-lg col-md-3  pull-left',
                                 callback: function() {
                                     $.ajax({
-                                        url: "../ajax/asistencia.php?op=registrar_asistencia",
+                                        url: "../ajax/asistenciaController.php?op=registrar_asistencia",
                                         type: "POST",
                                         data: formData,
                                         contentType: false,

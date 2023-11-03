@@ -18,7 +18,7 @@ function init() {
         $("#fecha_fin").val(ff);
     }
 
-    $.post("../ajax/entrada_salida.php?op=selectPersona", function (r) {
+    $.post("../ajax/entradaSalidaController.php?op=selectPersona", function (r) {
         $("#codigo_persona").html(r);
         $('#codigo_persona').val(cd);
         $("#codigo_persona").selectpicker("refresh");
@@ -117,7 +117,7 @@ function listar_asistencia() {
                 },
             ],
             ajax: {
-                url: "../ajax/entrada_salida.php?op=listar_asistencia",
+                url: "../ajax/entradaSalidaController.php?op=listar_asistencia",
                 data: {
                     fecha_inicio: fecha_inicio,
                     fecha_fin: fecha_fin,
@@ -183,7 +183,7 @@ function editartipo(idasistencia) {
                     var tipoAsistencia = $("#selecttipo1").val();
                     var anotacion = $("#anotacion1").val();
                     $.ajax({
-                        url: "../ajax/entrada_salida.php?op=nuevo_tipo",
+                        url: "../ajax/entradaSalidaController.php?op=nuevo_tipo",
                         type: "POST",
                         data: { idasistencia: idasistencia, tipoAsistencia: tipoAsistencia, anotacion: anotacion },
                         processData: JSON,
@@ -219,7 +219,7 @@ function borrar_asistencia(id_asistencia) {
         callback: function (result) {
             if (result){
                 $.ajax({
-                    url: "../ajax/entrada_salida.php?op=borrar_asistencia",
+                    url: "../ajax/entradaSalidaController.php?op=borrar_asistencia",
                     type: "POST",
                     data: { id_asistencia: id_asistencia},
                     processData: JSON,
@@ -249,7 +249,7 @@ function crear_asistencia() {
     limpiar(numFechas);
 
     $.ajax({
-        url: "../ajax/entrada_salida.php?op=nueva_asistencia",
+        url: "../ajax/entradaSalidaController.php?op=nueva_asistencia",
         type: "POST",
         data: { codigo_persona: codigo_persona, arrFechas: arrFechas, anotacion: anotacion, tipoAsistencia: tipoAsistencia },
         processData: JSON,
@@ -310,7 +310,7 @@ function editar_entrada(entrada, id_asistencia) {
         callback: function (result) {
             if (result){
                 $.ajax({
-                    url: "../ajax/entrada_salida.php?op=editar_entrada",
+                    url: "../ajax/entradaSalidaController.php?op=editar_entrada",
                     type: "POST",
                     data: { id_asistencia: id_asistencia, hora:result, dia:dia },
                     processData: JSON,
@@ -341,7 +341,7 @@ function editar_salida(salida, id_asistencia) {
         callback: function (result) {
             if (result){
                 $.ajax({
-                    url: "../ajax/entrada_salida.php?op=editar_salida",
+                    url: "../ajax/entradaSalidaController.php?op=editar_salida",
                     type: "POST",
                     data: { id_asistencia: id_asistencia, hora:result, dia:dia },
                     processData: JSON,
