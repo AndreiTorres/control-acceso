@@ -137,11 +137,7 @@ switch ($_GET["op"]) {
 			$_SESSION['login']=$fetch->login;
 			$_SESSION['tipousuario']=$fetch->tipousuario;
 			$_SESSION['departamento']=$fetch->iddepartamento;
-			require "../../config/Conexion.php";
-
-			$sql="UPDATE usuarios SET iteracion='1' WHERE idusuario='$id'";
-			echo $sql; 
-	 		ejecutarConsulta($sql);	 		
+			require "../../config/Conexion.php";	 		
 
 		}
 
